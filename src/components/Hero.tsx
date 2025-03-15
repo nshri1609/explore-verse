@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import BookingForm from "./BookingForm";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const heroImages = [
   {
@@ -25,6 +26,7 @@ const heroImages = [
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showForm, setShowForm] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -100,19 +102,19 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Buttons with animation */}
-          <div className="mt-36 md:mt-48 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+          {/* Buttons with animation - Fixed for mobile */}
+          <div className={`${isMobile ? 'mt-28' : 'mt-36 md:mt-48'} flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4`}>
             <Button 
-              size="lg"
+              size={isMobile ? "default" : "lg"}
               onClick={() => setShowForm(!showForm)}
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg btn-hover-slide"
+              className={`bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 ${isMobile ? 'py-2 text-base w-full max-w-xs' : 'py-6 text-lg'} rounded-full btn-hover-slide`}
             >
-              {showForm ? "Hide Form" : "Plan Your Trip"} <ChevronRight className="ml-2 h-5 w-5" />
+              {showForm ? "Hide Form" : "Plan Your Trip"} <ChevronRight className={`ml-1 ${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} />
             </Button>
             <Button 
-              size="lg" 
+              size={isMobile ? "default" : "lg"} 
               variant="outline" 
-              className="bg-travel-blue hover:bg-travel-blue/90 text-white border-travel-blue px-8 py-6 rounded-full text-lg"
+              className={`bg-travel-blue hover:bg-travel-blue/90 text-white border-travel-blue ${isMobile ? 'px-6 py-2 text-base w-full max-w-xs' : 'px-8 py-6 text-lg'} rounded-full`}
             >
               Explore Destinations
             </Button>
