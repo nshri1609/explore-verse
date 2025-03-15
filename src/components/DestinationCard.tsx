@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "@/lib/toast";
 
 interface DestinationCardProps {
   image: string;
@@ -33,7 +32,6 @@ const DestinationCard = ({
       style={{ transitionDelay: `${delay * 0.1}s` }}
     >
       <div className="relative h-[450px] overflow-hidden rounded-xl">
-        {/* Image with blur loading effect */}
         <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
         <img
           src={image}
@@ -44,7 +42,6 @@ const DestinationCard = ({
           onLoad={() => setIsLoaded(true)}
         />
         
-        {/* Card content */}
         <div className="card-content">
           <div className="space-y-1">
             <div className="flex items-center justify-between">

@@ -2,7 +2,7 @@
 import { Calendar, MapPin, Users, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "@/lib/toast";
 
 const BookingForm = () => {
   const [destination, setDestination] = useState("");
