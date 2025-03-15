@@ -112,7 +112,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-white border-white hover:bg-white/10 px-8 py-6 rounded-full text-lg"
+              className="bg-travel-blue hover:bg-travel-blue/90 text-white border-travel-blue px-8 py-6 rounded-full text-lg"
             >
               Explore Destinations
             </Button>
