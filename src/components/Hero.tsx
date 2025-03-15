@@ -102,22 +102,25 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Buttons with animation - Fixed for mobile */}
-          <div className={`${isMobile ? 'mt-28' : 'mt-36 md:mt-48'} flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4`}>
-            <Button 
-              size={isMobile ? "default" : "lg"}
-              onClick={() => setShowForm(!showForm)}
-              className={`bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 ${isMobile ? 'py-2 text-base w-full max-w-xs' : 'py-6 text-lg'} rounded-full btn-hover-slide`}
-            >
-              {showForm ? "Hide Form" : "Plan Your Trip"} <ChevronRight className={`ml-1 ${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} />
-            </Button>
-            <Button 
-              size={isMobile ? "default" : "lg"} 
-              variant="outline" 
-              className={`bg-travel-blue hover:bg-travel-blue/90 text-white border-travel-blue ${isMobile ? 'px-6 py-2 text-base w-full max-w-xs' : 'px-8 py-6 text-lg'} rounded-full`}
-            >
-              Explore Destinations
-            </Button>
+          {/* Buttons with animation - Fixed properly for mobile */}
+          <div className={`${isMobile ? 'mt-28' : 'mt-36 md:mt-48'}`}>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <Button 
+                size={isMobile ? "default" : "lg"}
+                onClick={() => setShowForm(!showForm)}
+                className="bg-primary hover:bg-primary/90 text-white rounded-full w-full sm:w-auto whitespace-nowrap"
+              >
+                <span className="mr-1">{showForm ? "Hide Form" : "Plan Your Trip"}</span>
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+              <Button 
+                size={isMobile ? "default" : "lg"} 
+                variant="outline" 
+                className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white border-[#0EA5E9] rounded-full w-full sm:w-auto whitespace-nowrap"
+              >
+                Explore Destinations
+              </Button>
+            </div>
           </div>
 
           {/* Booking Form */}
