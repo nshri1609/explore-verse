@@ -41,7 +41,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="#" className="z-50 flex items-center">
             <span className={`text-2xl font-heading font-bold ${isScrolled ? "text-travel-dark" : "text-white"}`}>
-              simplyRaahi
+              SimplyRaahi
             </span>
           </a>
 
